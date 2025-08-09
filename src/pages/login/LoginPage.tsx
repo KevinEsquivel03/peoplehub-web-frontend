@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../features/auth/hooks/useAuth'
 import { loginUser } from '../../features/auth/api/authApi'
+import type { AuthError } from '@supabase/supabase-js'
+import type { AuthResponse } from '../../features/auth/model/types'
 
 const LoginPage = () => {
     const [email, setEmail] = useState('')
@@ -12,7 +14,7 @@ const LoginPage = () => {
 
     useEffect(() => {
         if (isAuthenticated) {
-            navigate('/')
+            window.location.href = '/'
         }
         setError('')
     }, [email, password, isAuthenticated, navigate])
@@ -21,8 +23,12 @@ const LoginPage = () => {
         e.preventDefault()
         try {
             const response = await loginUser({ email, password })
-            login(response)
-            navigate('/')
+            if (response as AuthError) {
+                setError('Credenciales incorrectas ' + (response as AuthError).message)
+                return
+            }
+            login(response as AuthResponse)
+            window.location.href = '/'
         } catch (err) {
             console.error(err)
             setError('Credenciales incorrectas')
