@@ -23,7 +23,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
                 const token = localStorage.getItem('accessToken')
                 if (token) {
                     const userData = await getCurrentUser()
-                    console.log(userData)
                     setUser(userData)
                     setIsAuthenticated(true)
                 }
@@ -43,8 +42,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
 
     const logout = () => {
-        localStorage.removeItem('accessToken')
+        localStorage.clear()
         setUser(null)
+        setIsAuthenticated(false)
+        window.location.href = '/login'
     }
 
     if (loading) {

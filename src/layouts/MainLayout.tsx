@@ -12,7 +12,7 @@ const MainLayout = () => {
                     <h1>Mi Aplicación</h1>
                     {user && (
                         <div>
-                            <span>Hola, {user.name}</span>
+                            <span>Hola, {user.user_metadata.display_name}</span>
                             <Button onClick={logout}>Cerrar sesión</Button>
                         </div>
                     )}
