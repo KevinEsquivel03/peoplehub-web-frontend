@@ -8,7 +8,7 @@ const HomePage = () => {
             <h1>Bienvenido a la aplicación</h1>
             {user && (
                 <div>
-                    <p>Nombre: {user.name}</p>
+                    <p>Nombre: {user.user_metadata.display_name}</p>
                     <p>Email: {user.email}</p>
                 </div>
             )}

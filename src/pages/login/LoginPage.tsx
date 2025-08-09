@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../features/auth/hooks/useAuth'
 import { loginUser } from '../../features/auth/api/authApi'
@@ -7,14 +7,21 @@ const LoginPage = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
-    const { login } = useAuth()
+    const { login, isAuthenticated } = useAuth()
     const navigate = useNavigate()
+
+    useEffect(() => {
+        if (isAuthenticated) {
+            navigate('/')
+        }
+        setError('')
+    }, [email, password, isAuthenticated, navigate])
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         try {
             const response = await loginUser({ email, password })
-            login(response.token)
+            login(response)
             navigate('/')
         } catch (err) {
             console.error(err)
