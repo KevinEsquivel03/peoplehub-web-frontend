@@ -32,7 +32,12 @@ export default MainLayout
             <header>
                 <nav>
                     <h1>Mi Aplicación</h1>
-                    
+                    {user && (
+                        <div>
+                            <span>Hola, {user.user_metadata.display_name}</span>
+                            <Button onClick={logout}>Cerrar sesión</Button>
+                        </div>
+                    )}
                 </nav>
             </header>
             <main>
