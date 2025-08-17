@@ -1,0 +1,140 @@
+/* Sidebar.module.css */
+
+.sidebar {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+/* Brand Section */
+.sidebar__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.sidebar__logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(3, 3, 3);
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+.sidebar__brandText {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7280;
+  text-align: center;
+}
+
+/* Navigation */
+.sidebar__nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  align-items: center;
+}
+
+.sidebar__item {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.sidebar__item:hover {
+  background: #f3f4f6;
+}
+
+.sidebar__item--active {
+  background: var(--color-black);
+}
+
+.sidebar__item--active .sidebar__icon {
+  color: var(--color-yellow);
+}
+
+.sidebar__icon {
+  font-size: 18px;
+  color: var(--color-black);
+  transition: color 0.2s ease;
+}
+
+.sidebar__item:hover .sidebar__icon {
+  color: #374151;
+}
+
+
+
+/* User Profile */
+.sidebar__user {
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.sidebar__userAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.sidebar__userAvatar:hover {
+  background: #e5e7eb;
+  border-color: #3b82f6;
+}
+
+.sidebar__userAvatar .fa-user {
+  font-size: 16px;
+  color: #6b7280;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 60px;
+    padding: 15px 0;
+  }
+  
+  .sidebar__logo,
+  .sidebar__item {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .sidebar__logo {
+    font-size: 16px;
+  }
+  
+  .sidebar__icon {
+    font-size: 16px;
+  }
+  
+  .sidebar__brandText {
+    display: none;
+  }
+}
