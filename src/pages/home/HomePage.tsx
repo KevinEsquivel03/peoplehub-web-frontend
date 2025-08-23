@@ -1,6 +1,7 @@
 //import { useAuth } from '../../features/auth/hooks/useAuth'
 import styles from './HomePage.module.css';
 import GroupsGrid from './GroupsGrid';
+import HomeCalendar from './HomeCalendar';
 
 const HomePage = () => {
   //const { user } = useAuth()
@@ -13,7 +14,9 @@ const HomePage = () => {
       </div>
 
       <div>
-        <h1 className={styles.secondGrid}>calendar</h1>
+        <h1 className={styles.secondGrid}>
+          <HomeCalendar />
+        </h1>
       </div>
 
     </div>

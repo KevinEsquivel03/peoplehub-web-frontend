@@ -15,7 +15,6 @@
   overflow: hidden;
   text-align: center;
   box-sizing: border-box;
-  background-color: rgb(223, 224, 226);
   border-radius: 16px;
   /* Ocultar scrollbar en webkit browsers */
   -webkit-scrollbar: none;
@@ -30,8 +29,7 @@
 .secondGrid {
   grid-column: 2 / 3;
   height: 82vh;
-  overflow: auto;
-  background-color: lightcoral;
+  overflow: hidden;
   text-align: center;
     box-sizing: border-box;
 }
