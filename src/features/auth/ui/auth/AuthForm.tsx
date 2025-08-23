@@ -21,7 +21,6 @@ export function AuthForm<T extends Record<string, string>>({
     buttonText = 'Enviar',
     fields,
 }: AuthFormProps<T>) {
-    // Estado para almacenar dinámicamente los valores de los inputs
     const [formData, setFormData] = useState<Record<string, string>>(
         Object.fromEntries(fields.map((f) => [f.id as string, '']))
     )

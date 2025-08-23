@@ -1,4 +1,3 @@
-// src/features/auth/api/authApi.ts
 import { supabase } from '../../../config/supabase-client'
 import type { AuthError, Session, User } from '@supabase/supabase-js'
 
@@ -9,7 +8,6 @@ export interface RegisterCredentials {
 }
 
 export class AuthApi {
-    // REGISTER
     static async registerUser(
         credentials: RegisterCredentials
     ): Promise<{ user: User | null; session: Session | null; error: AuthError | null }> {

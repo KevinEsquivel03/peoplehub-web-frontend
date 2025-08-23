@@ -1,4 +1,3 @@
-// src/pages/auth/LoginPage.tsx
 import { useEffect, useState } from 'react'
 import { useNavigate, useLocation, Link } from 'react-router-dom'
 import { AuthApi } from '../../features/auth/api/authApi'
@@ -40,7 +39,6 @@ const LoginPage = () => {
 
             if (response.user) {
                 login(response.user)
-                // 🔥 Usar navigate en lugar de window.location
                 navigate('/', { replace: true })
             }
         } catch (err) {
@@ -51,7 +49,6 @@ const LoginPage = () => {
         }
     }
 
-    // 🔥 Agregar console.log para debugging
     console.log('LoginPage rendered, isAuthenticated:', isAuthenticated)
 
     return (
@@ -64,7 +61,6 @@ const LoginPage = () => {
                     Inicia sesión para continuar
                 </p>
 
-                {/* Mensaje de error */}
                 {error && (
                     <div
                         role="alert"
@@ -74,7 +70,6 @@ const LoginPage = () => {
                     </div>
                 )}
 
-                {/* AuthForm reutilizable */}
                 <AuthForm
                     onSubmit={handleLogin}
                     isLoading={isLoading}
@@ -99,7 +94,6 @@ const LoginPage = () => {
                     ]}
                 />
 
-                {/* Links extras */}
                 <div className={styles.linksContainer}>
                     <p>
                         ¿No tienes cuenta?{' '}

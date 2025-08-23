@@ -1,4 +1,3 @@
-// src/router/index.ts
 import { createBrowserRouter } from 'react-router-dom';
 import MainLayout from '../../layouts/MainLayout';
 import AuthLayout from '../../layouts/auth/AuthLayout';
