@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useLocation, Link } from 'react-router-dom'
 import { AuthApi } from '../../features/auth/api/authApi'
-import { AuthForm } from '../../features/auth/ui/auth/AuthForm'
+import { AuthForm } from '../../features/auth/ui/AuthForm'
 import { useAuth } from '../../features/auth/hooks/useAuth'
 import styles from './LoginPage.module.css'
 
