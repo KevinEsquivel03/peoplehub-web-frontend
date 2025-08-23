@@ -3,6 +3,7 @@ import { Calendar, momentLocalizer } from 'react-big-calendar'
 import type { SlotInfo, Event } from 'react-big-calendar'
 import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css' // ¡IMPORTANTE!
+import Styles from './HomeCalendar.module.css'
 
 // Tipos de TypeScript
 interface CalendarEvent extends Event {
@@ -14,7 +15,7 @@ interface CalendarEvent extends Event {
 
 const localizer = momentLocalizer(moment)
 
-const Files: React.FC = () => {
+const HomeCalendar: React.FC = () => {
   // Array de eventos inicial
   const [events, setEvents] = useState<CalendarEvent[]>([
     {
@@ -56,7 +57,7 @@ const Files: React.FC = () => {
   }
 
   return (
-    <div style={{ height: '600px', margin: '20px' }}>
+    <div className={Styles.container}>
       <Calendar
         localizer={localizer}
         events={events}
@@ -74,4 +75,4 @@ const Files: React.FC = () => {
   )
 }
 
-export default Files
+export default HomeCalendar

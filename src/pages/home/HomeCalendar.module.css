@@ -1,0 +1,8 @@
+.container
+{ 
+    height: 82vh;
+    padding: 1rem;
+    box-sizing: border-box;
+    border-radius: 16px;
+    background: var(--color-white);
+}
