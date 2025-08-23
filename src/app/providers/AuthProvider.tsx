@@ -1,4 +1,3 @@
-// src/context/AuthContext.tsx
 import { createContext, useState, useEffect, type ReactNode } from 'react'
 import type { User as SupabaseUser } from '@supabase/supabase-js'
 import { supabase } from '../../config/supabase-client'
@@ -14,7 +13,7 @@ interface AuthContextType {
     user: AppUser | null
     login: (user: SupabaseUser) => void
     logout: () => void
-    loading: boolean // 👈 Exponemos loading
+    loading: boolean
 }
 
 const AuthContext = createContext<AuthContextType | null>(null)
@@ -24,9 +23,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const [loading, setLoading] = useState(true)
     const [isAuthenticated, setIsAuthenticated] = useState(false)
 
-    // 🔥 Mejor manejo de la sesión de Supabase
     useEffect(() => {
-        // Obtener sesión actual
         const getInitialSession = async () => {
             try {
                 const { data: { session }, error } = await supabase.auth.getSession()
@@ -54,7 +51,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
         getInitialSession()
 
-        // Escuchar cambios en la autenticación
         const { data: { subscription } } = supabase.auth.onAuthStateChange(
             async (event, session) => {
                 if (event === 'SIGNED_IN' && session?.user) {
@@ -84,7 +80,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         }
         setUser(appUser)
         setIsAuthenticated(true)
-        // ❌ Evita window.location.href, usa navigate en su lugar
     }
 
     const logout = async () => {
@@ -95,18 +90,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         } catch (error) {
             console.error('Error signing out:', error)
         }
-    }
-
-    // 🎨 Loading component más visual
-    if (loading) {
-        return (
-            <div className="flex items-center justify-center min-h-screen bg-gray-50">
-                <div className="text-center">
-                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 mx-auto mb-4"></div>
-                    <p className="text-gray-600">Cargando...</p>
-                </div>
-            </div>
-        )
     }
 
     return (

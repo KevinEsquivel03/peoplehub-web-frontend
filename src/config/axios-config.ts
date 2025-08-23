@@ -8,7 +8,6 @@ export const axiosInstance = axios.create({
     }
 })
 
-// Interceptor para añadir token a las peticiones
 axiosInstance.interceptors.request.use((config) => {
     const token = localStorage.getItem('accessToken')
     if (token) {

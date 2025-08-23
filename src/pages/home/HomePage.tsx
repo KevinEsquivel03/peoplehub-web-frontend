@@ -3,7 +3,7 @@ import styles from './HomePage.module.css';
 import GroupsGrid from './GroupsGrid';
 
 const HomePage = () => {
-    //const { user } = useAuth()
+  //const { user } = useAuth()
 
   return (
     <div className={styles.container}>
@@ -15,7 +15,7 @@ const HomePage = () => {
       <div>
         <h1 className={styles.secondGrid}>calendar</h1>
       </div>
-      
+
     </div>
   );
 }
