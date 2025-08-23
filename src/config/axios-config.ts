@@ -17,7 +17,6 @@ axiosInstance.interceptors.request.use((config) => {
     return config
 })
 
-// Interceptor para manejar errores
 axiosInstance.interceptors.response.use(
     (response) => response,
     (error) => {
