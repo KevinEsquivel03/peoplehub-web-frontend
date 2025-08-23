@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 import MainLayout from '../../layouts/MainLayout';
 import AuthLayout from '../../layouts/auth/AuthLayout';
 import HomePage from '../../pages/home/HomePage';
@@ -10,31 +10,23 @@ import Files from '../../pages/files/Files';
 export const router = createBrowserRouter([
     {
         path: '/',
-        element: <MainLayout />,
+        element: (
+            <ProtectedRoute>
+                <MainLayout />
+            </ProtectedRoute>
+        ),
         children: [
             {
                 index: true,
-                element: (
-                    <ProtectedRoute>
-                        <HomePage />
-                    </ProtectedRoute>
-                ),
+                element: <HomePage />,
             },
             {
                 path: 'config',
-                element: (
-                    <ProtectedRoute>
-                        <Configuration />
-                    </ProtectedRoute>
-                ),
+                element: <Configuration />,
             },
             {
                 path: 'files',
-                element: (
-                    <ProtectedRoute>
-                        <Files />
-                    </ProtectedRoute>
-                ),
+                element: <Files />,
             },
         ],
     },
@@ -46,6 +38,14 @@ export const router = createBrowserRouter([
                 path: 'login',
                 element: <LoginPage />,
             },
+            {
+                index: true,
+                element: <Navigate to="/auth/login" replace />,
+            },
         ],
+    },
+    {
+        path: '*',
+        element: <Navigate to="/auth/login" replace />,
     },
 ]);
