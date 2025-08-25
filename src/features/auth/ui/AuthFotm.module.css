@@ -1,114 +1,114 @@
 /* Eliminamos el fondo, márgenes y sombras que ya están en los contenedores padres */
 .form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .field {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .label {
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: #374151;
-    margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.5rem;
 }
 
 .input {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    font-size: 0.875rem;
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
-    background-color: #f9fafb;
-    transition: all 0.2s ease;
-    box-sizing: border-box;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background-color: #f9fafb;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
 }
 
 .input:focus {
-    outline: none;
-    border-color: #6366f1;
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
-    background-color: #fff;
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+  background-color: #fff;
 }
 
 .input:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .button {
-    width: 100%;
-    padding: 0.75rem 1.5rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: white;
-    background-color: #6366f1;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: white;
+  background-color: #6366f1;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .button:hover:not(:disabled) {
-    background-color: #4f46e5;
-    transform: translateY(-1px);
+  background-color: #4f46e5;
+  transform: translateY(-1px);
 }
 
 .button:active:not(:disabled) {
-    transform: translateY(0);
+  transform: translateY(0);
 }
 
 .button:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .buttonLoading {
-    position: relative;
-    color: transparent;
+  position: relative;
+  color: transparent;
 }
 
 .buttonLoading::after {
-    content: "";
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    border: 2px solid transparent;
-    border-top-color: white;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 2px solid transparent;
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
 
-    100% {
-        transform: rotate(360deg);
-    }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Modo oscuro */
 @media (prefers-color-scheme: dark) {
-    .label {
-        color: #e5e7eb;
-    }
+  .label {
+    color: #e5e7eb;
+  }
 
-    .input {
-        background-color: #374151;
-        border-color: #4b5563;
-        color: #f3f4f6;
-    }
+  .input {
+    background-color: #374151;
+    border-color: #4b5563;
+    color: #f3f4f6;
+  }
 
-    .input:focus {
-        background-color: #1f2937;
-    }
+  .input:focus {
+    background-color: #1f2937;
+  }
 }
