@@ -22,7 +22,7 @@
     "noUncheckedSideEffectImports": true,
 
     "composite": true,
-    "rootDir": "./src",
+    "rootDir": "./src"
   },
   "include": ["src"]
 }

@@ -1,5 +1,5 @@
 {
-    "compilerOptions": {
+  "compilerOptions": {
     "jsx": "react-jsx",
     "module": "commonjs",
     "target": "esnext",
@@ -9,12 +9,12 @@
     "strict": true,
     "noEmit": true,
     "allowArbitraryExtensions": true,
-    "types": ["node", "jest", "@testing-library/jest-dom"],
+    "types": ["node", "jest", "@testing-library/jest-dom"]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts"],
   "files": [],
   "references": [
-    { "path": "./tsconfig.app.json"},
+    { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ],
+  ]
 }

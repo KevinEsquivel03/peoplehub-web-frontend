@@ -11,7 +11,17 @@ import importPlugin from "eslint-plugin-import";
 
 export default [
   {
-    ignores: ['**/*.module.css', '**/*.test.tsx', '**/*.tests.ts', '**/*.test.ts', 'jest.config.ts', 'tsconfig.json', 'vite.config.ts', 'postcss.config.js', '**/*.d.ts'],
+    ignores: [
+      "**/*.module.css",
+      "**/*.test.tsx",
+      "**/*.tests.ts",
+      "**/*.test.ts",
+      "jest.config.ts",
+      "tsconfig.json",
+      "vite.config.ts",
+      "postcss.config.js",
+      "**/*.d.ts",
+    ],
   },
   {
     files: ["**/*.{ts,tsx}"],
