@@ -30,7 +30,7 @@ const LoginPage = () => {
       window.location.href = "/";
     } catch (err) {
       console.error(err);
-      setError("Credenciales incorrectas");
+      setError("Credenciales incorrectas!!");
     }
   };
 
