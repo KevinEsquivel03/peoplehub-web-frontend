@@ -1,39 +1,73 @@
-import React, { useState } from 'react'
-import type { Credentials } from '../model/types'
+import React, { useState } from "react";
+import styles from "./AuthFotm.module.css";
 
-interface AuthFormProps {
-    onSubmit: (credentials: Credentials) => void
-    isLoading: boolean
+interface AuthFormProps<T extends Record<string, string>> {
+  onSubmit: (data: T) => void;
+  isLoading: boolean;
+  buttonText?: string;
+  fields: {
+    id: keyof T;
+    label: string;
+    type: string;
+    placeholder?: string;
+    autoComplete?: string;
+    required?: boolean;
+  }[];
 }
 
-export const AuthForm = ({ onSubmit, isLoading }: AuthFormProps) => {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+export function AuthForm<T extends Record<string, string>>({
+  onSubmit,
+  isLoading,
+  buttonText = "Enviar",
+  fields,
+}: AuthFormProps<T>) {
+  const [formData, setFormData] = useState<Record<string, string>>(
+    Object.fromEntries(fields.map((f) => [f.id as string, ""])),
+  );
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
-        onSubmit({ email, password })
-    }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({ ...prev, [id]: value }));
+  };
 
-    return (
-        <form onSubmit={handleSubmit} className="auth-form">
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    onSubmit(formData as T);
+  };
+
+  return (
+    <div className={styles.authForm}>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        {/* Campos dinámicos */}
+        {fields.map((field) => (
+          <div key={field.id as string} className={styles.field}>
+            <label htmlFor={field.id as string} className={styles.label}>
+              {field.label}
+            </label>
             <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email"
-                required
+              id={field.id as string}
+              type={field.type}
+              value={formData[field.id as string]}
+              onChange={handleChange}
+              placeholder={field.placeholder}
+              autoComplete={field.autoComplete}
+              required={field.required}
+              disabled={isLoading}
+              className={styles.input}
             />
-            <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Password"
-                required
-            />
-            <button type="submit" disabled={isLoading}>
-                {isLoading ? 'Cargando...' : 'Iniciar sesión'}
-            </button>
-        </form>
-    )
+          </div>
+        ))}
+
+        {/* Botón de submit */}
+        <button
+          type="submit"
+          disabled={isLoading}
+          aria-busy={isLoading}
+          className={isLoading ? styles.buttonLoading : styles.button}
+        >
+          {isLoading ? "Cargando..." : buttonText}
+        </button>
+      </form>
+    </div>
+  );
 }

@@ -1,0 +1,185 @@
+.container {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.header h3 {
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.header p {
+  color: #6b7280;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.statPresent {
+  color: #059669;
+}
+
+.statAbsent {
+  color: #dc2626;
+}
+
+.statTotal {
+  color: #374151;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.person {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  transition: all 0.2s ease;
+}
+
+.person:hover {
+  background: #f3f4f6;
+  transform: translateX(4px);
+}
+
+.name {
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.button {
+  padding: 0.5rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.presentButton:hover {
+  border-color: #059669;
+  background: #ecfdf5;
+}
+
+.absentButton:hover {
+  border-color: #dc2626;
+  background: #fef2f2;
+}
+
+.activePresent {
+  background: #ecfdf5;
+  border-color: #059669;
+  color: #059669;
+}
+
+.activeAbsent {
+  background: #fef2f2;
+  border-color: #dc2626;
+  color: #dc2626;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 1rem;
+  background: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.submitButton:hover {
+  background: #4f46e5;
+  transform: translateY(-2px);
+}
+
+/* Modo oscuro */
+@media (prefers-color-scheme: dark) {
+  .container {
+    background: #1f2937;
+  }
+
+  .header h3 {
+    color: #f9fafb;
+  }
+
+  .stats {
+    background: #374151;
+  }
+
+  .person {
+    background: #374151;
+    border-color: #4b5563;
+  }
+
+  .person:hover {
+    background: #4b5563;
+  }
+
+  .name {
+    color: #f9fafb;
+  }
+
+  .button {
+    background: #4b5563;
+    border-color: #6b7280;
+    color: #f9fafb;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .person {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .buttons {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .button {
+    flex: 1;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+}

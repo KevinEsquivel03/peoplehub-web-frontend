@@ -1,22 +1,30 @@
-import { 
-  FaUsers, 
-  FaSearch, 
-  FaBookmark, 
-  FaFolder, 
-  FaSync, 
+import {
+  FaUsers,
+  FaSearch,
+  FaBookmark,
+  FaFolder,
+  FaSync,
   FaCog,
-  FaUser 
-} from 'react-icons/fa';
-import styles from './Sidebar.module.css';
+  FaUser,
+} from "react-icons/fa";
+import styles from "./Sidebar.module.css";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavigation = (path: string) => {
+    navigate(path);
+  };
+
   const menuItems = [
-    { icon: <FaUsers />, label: 'Grupos', active: true },
-    { icon: <FaSearch />, label: 'Buscar' },
-    { icon: <FaBookmark />, label: 'Guardados' },
-    { icon: <FaFolder />, label: 'Archivos' },
-    { icon: <FaSync />, label: 'Sincronizar' },
-    { icon: <FaCog />, label: 'Configuración' }
+    { icon: <FaUsers />, label: "Grupos", path: "/" },
+    { icon: <FaSearch />, label: "Buscar", path: "/search" },
+    { icon: <FaBookmark />, label: "Guardados", path: "/saved" },
+    { icon: <FaFolder />, label: "Archivos", path: "/files" },
+    { icon: <FaSync />, label: "Sincronizar", path: "/sync" },
+    { icon: <FaCog />, label: "Configuración", path: "/config" },
   ];
 
   return (
@@ -32,14 +40,19 @@ const Sidebar = () => {
       {/* Menu Items */}
       <nav className={styles.sidebar__nav}>
         {menuItems.map((item, index) => (
-          <div 
+          <button
             key={index}
-            className={`${styles.sidebar__item} ${item.active ? styles['sidebar__item--active'] : ''}`}
+            onClick={() => handleNavigation(item.path)}
+            className={`${styles.sidebar__item} ${
+              location.pathname === item.path
+                ? styles["sidebar__item--active"]
+                : ""
+            }`}
+            aria-label={item.label}
+            style={{ cursor: "pointer" }}
           >
-            <div className={styles.sidebar__icon}>
-              {item.icon}
-            </div>
-          </div>
+            <div className={styles.sidebar__icon}>{item.icon}</div>
+          </button>
         ))}
       </nav>
 
