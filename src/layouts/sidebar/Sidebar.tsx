@@ -14,6 +14,10 @@ const Sidebar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const handleNavigation = (path: string) => {
+    navigate(path);
+  };
+
   const menuItems = [
     { icon: <FaUsers />, label: "Grupos", path: "/" },
     { icon: <FaSearch />, label: "Buscar", path: "/search" },
@@ -22,10 +26,6 @@ const Sidebar = () => {
     { icon: <FaSync />, label: "Sincronizar", path: "/sync" },
     { icon: <FaCog />, label: "Configuración", path: "/config" },
   ];
-
-  const handleNavigation = (path: string) => {
-    navigate(path);
-  };
 
   return (
     <div className={styles.sidebar}>
