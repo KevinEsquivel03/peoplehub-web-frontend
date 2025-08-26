@@ -64,8 +64,6 @@ const RegisterPage = () => {
     }
   };
 
-  console.log("RegisterPage rendered, isAuthenticated:", isAuthenticated);
-
   return (
     <div className={styles.registerContainer}>
       <div className={styles.registerCard}>
