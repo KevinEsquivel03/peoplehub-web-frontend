@@ -13,7 +13,7 @@ const LoginPage = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      window.location.href = "/";
+      navigate("/", { replace: true });
     }
     setError("");
   }, [email, password, isAuthenticated, navigate]);
@@ -27,7 +27,7 @@ const LoginPage = () => {
         return;
       }
       login(response.user);
-      window.location.href = "/";
+      navigate("/", { replace: true });
     } catch (err) {
       console.error(err);
       setError("Credenciales incorrectas");
