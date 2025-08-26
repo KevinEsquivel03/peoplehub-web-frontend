@@ -49,4 +49,4 @@ jobs:
           commit_message: "chore(format): apply automatic Prettier formatting"
           branch: ${{ github.ref_name }}
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
