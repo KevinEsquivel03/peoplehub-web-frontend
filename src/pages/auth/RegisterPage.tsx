@@ -3,12 +3,11 @@ import { useNavigate, useLocation, Link } from "react-router-dom";
 import { AuthApi } from "../../features/auth/api/authApi";
 import { AuthForm } from "../../features/auth/ui/AuthForm";
 import { useAuth } from "../../features/auth/hooks/useAuth";
-import styles from "./LoginPage.module.css";
+import styles from "./RegisterPage.module.css";
 
-const LoginPage = () => {
+const RegisterPage = () => {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
   const { login, isAuthenticated } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
@@ -20,19 +19,36 @@ const LoginPage = () => {
     }
   }, [isAuthenticated, navigate, location]);
 
-  const handleLogin = async (data: Record<string, string>) => {
-    const credentials: { email: string; password: string } = {
+  const handleRegister = async (data: Record<string, string>) => {
+    const credentials: {
+      email: string;
+      password: string;
+      confirmPassword: string;
+      name: string;
+    } = {
       email: data.email,
       password: data.password,
+      confirmPassword: data.confirmPassword,
+      name: data.name,
     };
+
+    if (credentials.password !== credentials.confirmPassword) {
+      setError("Las contraseñas no coinciden");
+      return;
+    }
 
     setIsLoading(true);
     setError("");
+
     try {
-      const response = await AuthApi.loginUser(credentials);
+      const response = await AuthApi.registerUser({
+        email: credentials.email,
+        password: credentials.password,
+        displayName: credentials.name,
+      });
 
       if (response.error) {
-        setError(`Error de autenticación: ${response.error.message}`);
+        setError(`Error de registro: ${response.error.message}`);
         return;
       }
 
@@ -41,20 +57,18 @@ const LoginPage = () => {
         navigate("/", { replace: true });
       }
     } catch (err) {
-      console.error("Error en login:", err);
+      console.error("Error en registro:", err);
       setError("Error en el servidor. Intente nuevamente.");
     } finally {
       setIsLoading(false);
     }
   };
 
-  console.log("LoginPage rendered, isAuthenticated:", isAuthenticated);
-
   return (
-    <div className={styles.loginContainer}>
-      <div className={styles.loginCard}>
-        <h2 className={styles.title}>Bienvenido 👋</h2>
-        <p className={styles.subtitle}>Inicia sesión para continuar</p>
+    <div className={styles.registerContainer}>
+      <div className={styles.registerCard}>
+        <h2 className={styles.title}>Crear cuenta 🚀</h2>
+        <p className={styles.subtitle}>Únete a nuestra comunidad</p>
 
         {error && (
           <div role="alert" className={styles.errorAlert}>
@@ -63,10 +77,18 @@ const LoginPage = () => {
         )}
 
         <AuthForm
-          onSubmit={handleLogin}
+          onSubmit={handleRegister}
           isLoading={isLoading}
-          buttonText="Ingresar"
+          buttonText="Crear cuenta"
           fields={[
+            {
+              id: "name",
+              label: "Nombre completo",
+              type: "text",
+              placeholder: "Ej: Juan Pérez",
+              autoComplete: "name",
+              required: true,
+            },
             {
               id: "email",
               label: "Email",
@@ -80,7 +102,15 @@ const LoginPage = () => {
               label: "Contraseña",
               type: "password",
               placeholder: "••••••••",
-              autoComplete: "current-password",
+              autoComplete: "new-password",
+              required: true,
+            },
+            {
+              id: "confirmPassword",
+              label: "Confirmar contraseña",
+              type: "password",
+              placeholder: "••••••••",
+              autoComplete: "new-password",
               required: true,
             },
           ]}
@@ -88,14 +118,9 @@ const LoginPage = () => {
 
         <div className={styles.linksContainer}>
           <p>
-            ¿No tienes cuenta?{" "}
-            <Link to="/auth/register" className={styles.link}>
-              Regístrate
-            </Link>
-          </p>
-          <p>
-            <Link to="/forgot-password" className={styles.link}>
-              ¿Olvidaste tu contraseña?
+            ¿Ya tienes cuenta?{" "}
+            <Link to="/login" className={styles.link}>
+              Inicia sesión
             </Link>
           </p>
         </div>
@@ -104,4 +129,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default RegisterPage;
