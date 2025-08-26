@@ -29,7 +29,6 @@ const Sidebar = () => {
 
   return (
     <div className={styles.sidebar}>
-      {/* Logo/Brand */}
       <div className={styles.sidebar__brand}>
         <div className={styles.sidebar__logo}>
           <FaUsers />
@@ -37,7 +36,6 @@ const Sidebar = () => {
         <span className={styles.sidebar__brandText}>PeopleHub</span>
       </div>
 
-      {/* Menu Items */}
       <nav className={styles.sidebar__nav}>
         {menuItems.map((item, index) => (
           <button
@@ -56,7 +54,6 @@ const Sidebar = () => {
         ))}
       </nav>
 
-      {/* User Profile */}
       <div className={styles.sidebar__user}>
         <div className={styles.sidebar__userAvatar}>
           <FaUser />

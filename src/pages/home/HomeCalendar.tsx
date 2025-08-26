@@ -5,7 +5,6 @@ import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css"; // ¡IMPORTANTE!
 import Styles from "./HomeCalendar.module.css";
 
-// Tipos de TypeScript
 interface CalendarEvent extends Event {
   id: number;
   title: string;
@@ -16,12 +15,11 @@ interface CalendarEvent extends Event {
 const localizer = momentLocalizer(moment);
 
 const HomeCalendar: React.FC = () => {
-  // Array de eventos inicial
   const [events, setEvents] = useState<CalendarEvent[]>([
     {
       id: 1,
       title: "Reunión de equipo",
-      start: new Date(2024, 10, 15, 10, 0), // año, mes(0-11), día, hora, minuto
+      start: new Date(2024, 10, 15, 10, 0),
       end: new Date(2024, 10, 15, 12, 0),
     },
     {
@@ -32,7 +30,6 @@ const HomeCalendar: React.FC = () => {
     },
   ]);
 
-  // Función para crear nuevo evento
   const handleSelectSlot = (slotInfo: SlotInfo) => {
     const title = window.prompt("Nombre del evento:");
     if (title) {
@@ -46,7 +43,6 @@ const HomeCalendar: React.FC = () => {
     }
   };
 
-  // Función para editar evento existente
   const handleSelectEvent = (event: CalendarEvent) => {
     const newTitle = window.prompt("Editar evento:", event.title);
     if (newTitle) {
