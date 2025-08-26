@@ -1,5 +1,3 @@
-/* HomePage.module.css */
-
 .container {
   padding: 20px;
   max-width: 1200px;
@@ -15,13 +13,10 @@
 .card {
   background: var(--color-white);
   border-radius: 16px;
-  /* Ocultar scrollbar en webkit browsers */
   -webkit-scrollbar: none;
 
-  /* Ocultar scrollbar en Firefox */
   scrollbar-width: none;
 
-  /* Ocultar scrollbar en IE/Edge legacy */
   -ms-overflow-style: none;
 }
 

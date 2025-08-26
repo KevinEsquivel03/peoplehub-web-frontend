@@ -38,7 +38,6 @@ export function AuthForm<T extends Record<string, string>>({
   return (
     <div className={styles.authForm}>
       <form onSubmit={handleSubmit} className={styles.form}>
-        {/* Campos dinámicos */}
         {fields.map((field) => (
           <div key={field.id as string} className={styles.field}>
             <label htmlFor={field.id as string} className={styles.label}>
@@ -58,7 +57,6 @@ export function AuthForm<T extends Record<string, string>>({
           </div>
         ))}
 
-        {/* Botón de submit */}
         <button
           type="submit"
           disabled={isLoading}

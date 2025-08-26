@@ -126,7 +126,6 @@
   transform: translateY(-2px);
 }
 
-/* Modo oscuro */
 @media (prefers-color-scheme: dark) {
   .container {
     background: #1f2937;
@@ -160,7 +159,6 @@
   }
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .person {
     flex-direction: column;

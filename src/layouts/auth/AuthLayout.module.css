@@ -14,14 +14,12 @@
     sans-serif;
 }
 
-/* Modo oscuro */
 @media (prefers-color-scheme: dark) {
   .authLayout {
     background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
   }
 }
 
-/* Responsive */
 @media (max-width: 480px) {
   .authLayout {
     padding: 0.5rem;

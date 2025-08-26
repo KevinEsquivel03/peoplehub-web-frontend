@@ -1,11 +1,8 @@
-//import { useAuth } from '../../features/auth/hooks/useAuth'
 import styles from "./HomePage.module.css";
 import GroupsGrid from "./GroupsGrid";
 import HomeCalendar from "./HomeCalendar";
 
 const HomePage = () => {
-  //const { user } = useAuth()
-
   const groups = [
     { id: 1, name: "Familia" },
     { id: 2, name: "Trabajo" },
