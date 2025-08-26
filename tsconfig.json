@@ -9,9 +9,11 @@
     "strict": true,
     "noEmit": true,
     "allowArbitraryExtensions": true,
+    "allowImportingTsExtensions": true,
     "types": ["node", "jest", "@testing-library/jest-dom"]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts"],
+  "exclude": ["src/**/*.test.ts", "src/**/*.test.tsx"],
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },

@@ -8,7 +8,7 @@ export interface AppUser {
   displayName?: string;
 }
 
-interface AuthContextType {
+export interface AuthContextType {
   isAuthenticated: boolean;
   user: AppUser | null;
   login: (user?: User | null) => void;

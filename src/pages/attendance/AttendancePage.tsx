@@ -1,7 +1,7 @@
 import { useState } from "react";
-import ClassicMode from "./modes/ClassicMode";
-import SwipeMode from "./modes/SwipeMode";
-import QuickMode from "./modes/QuickMode";
+import ClassicMode from "./modes/ClassicMode.tsx";
+import SwipeMode from "./modes/SwipeMode.tsx";
+import QuickMode from "./modes/QuickMode.tsx";
 import styles from "./AttendancePage.module.css";
 
 type AttendanceMode = "classic" | "swipe" | "quick" | "group";
