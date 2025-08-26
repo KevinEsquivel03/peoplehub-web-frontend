@@ -1,11 +1,9 @@
-// pages/attendance/AttendancePage.tsx
 import { useState } from "react";
 import ClassicMode from "./modes/ClassicMode";
 import SwipeMode from "./modes/SwipeMode";
 import QuickMode from "./modes/QuickMode";
 import styles from "./AttendancePage.module.css";
 
-// Tipo para los modos de pasar lista
 type AttendanceMode = "classic" | "swipe" | "quick" | "group";
 
 const AttendancePage = () => {
@@ -13,7 +11,6 @@ const AttendancePage = () => {
   const [selectedMode, setSelectedMode] = useState<AttendanceMode>("classic");
   const [date, setDate] = useState(new Date());
 
-  // Datos de ejemplo - reemplazar con tus datos reales
   const groups = [
     { id: "group1", name: "Grupo de Mañana" },
     { id: "group2", name: "Grupo de Tarde" },
@@ -65,7 +62,6 @@ const AttendancePage = () => {
         />
       </div>
 
-      {/* Selector de Modo */}
       {selectedGroup && (
         <div className={styles.section}>
           <h2 className={styles.subtitle}>Modo de Pasar Lista</h2>
@@ -98,7 +94,6 @@ const AttendancePage = () => {
         </div>
       )}
 
-      {/* Renderizar el modo seleccionado */}
       {selectedGroup && (
         <div className={styles.modeContainer}>
           {selectedMode === "classic" && (

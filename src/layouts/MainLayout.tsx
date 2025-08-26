@@ -33,22 +33,3 @@ const MainLayout = () => {
 };
 
 export default MainLayout;
-
-/*
-<div className="main-layout">
-            <header>
-                <nav>
-                    <h1>Mi Aplicación</h1>
-                    {user && (
-                        <div>
-                            <span>Hola, {user.user_metadata.display_name}</span>
-                            <Button onClick={logout}>Cerrar sesión</Button>
-                        </div>
-                    )}
-                </nav>
-            </header>
-            <main>
-                <Outlet />
-            </main>
-        </div>
-*/

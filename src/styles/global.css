@@ -1,16 +1,12 @@
-/* globals.css o variables.css */
 :root {
-  /* Colores de estado */
   --color-success: #10b981;
   --color-error: #ef4444;
   --color-warning: #f59e0b;
 
-  /* Colores de texto */
   --color-black: #1e293b;
   --color-yellow: #f1c40f;
   --color-white: #f8fafc;
 
-  /* Colores de fondo */
   --bg-primary: #e7eaee;
 }
 
@@ -31,6 +27,7 @@ h5,
 h6 {
   margin: 0;
 }
+
 .main-layout {
   display: flex;
   flex-direction: column;

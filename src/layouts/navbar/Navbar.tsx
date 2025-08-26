@@ -11,7 +11,6 @@ const Navbar = () => {
 
   return (
     <div className={styles.navbar}>
-      {/* Left Section - Greeting */}
       <div className={styles.navbar__greeting}>
         <h1 className={styles.navbar__title}>Hi, Amanda!</h1>
         <p className={styles.navbar__subtitle}>
@@ -19,9 +18,7 @@ const Navbar = () => {
         </p>
       </div>
 
-      {/* Right Section - Search & Button */}
       <div className={styles.navbar__actions}>
-        {/* Search Bar */}
         <div className={styles.navbar__search}>
           <FaSearch className={styles.navbar__searchIcon} />
           <input
@@ -31,7 +28,6 @@ const Navbar = () => {
           />
         </div>
 
-        {/* Dark Mode Toggle */}
         <button
           className={`${styles.navbar__themeToggle} ${isDarkMode ? styles["navbar__themeToggle--dark"] : ""}`}
           onClick={toggleDarkMode}

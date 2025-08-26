@@ -64,7 +64,6 @@
   }
 }
 
-/* Modo oscuro */
 @media (prefers-color-scheme: dark) {
   .spinner {
     border-color: #4b5563;
