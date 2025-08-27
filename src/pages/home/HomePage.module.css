@@ -1,35 +1,30 @@
-/* HomePage.module.css */
-
 .container {
-  width: 98%;
-  box-sizing: border-box;
-  overflow: hidden;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; 
+  grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
 }
 
-.firstGrid {
-  grid-column: 1 / 2;
-  height: 82vh;
-  overflow: hidden;
-  text-align: center;
-  box-sizing: border-box;
+.card {
+  background: var(--color-white);
   border-radius: 16px;
-  /* Ocultar scrollbar en webkit browsers */
   -webkit-scrollbar: none;
-  
-  /* Ocultar scrollbar en Firefox */
+
   scrollbar-width: none;
-  
-  /* Ocultar scrollbar en IE/Edge legacy */
+
   -ms-overflow-style: none;
 }
 
-.secondGrid {
-  grid-column: 2 / 3;
-  height: 82vh;
-  overflow: hidden;
+.groupName {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
   text-align: center;
-    box-sizing: border-box;
+  box-sizing: border-box;
 }

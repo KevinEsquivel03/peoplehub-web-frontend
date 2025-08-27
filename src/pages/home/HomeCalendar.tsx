@@ -1,60 +1,56 @@
-import React, { useState } from 'react'
-import { Calendar, momentLocalizer } from 'react-big-calendar'
-import type { SlotInfo, Event } from 'react-big-calendar'
-import moment from 'moment'
-import 'react-big-calendar/lib/css/react-big-calendar.css' // ¡IMPORTANTE!
-import Styles from './HomeCalendar.module.css'
+import React, { useState } from "react";
+import { Calendar, momentLocalizer } from "react-big-calendar";
+import type { SlotInfo, Event } from "react-big-calendar";
+import moment from "moment";
+import "react-big-calendar/lib/css/react-big-calendar.css"; // ¡IMPORTANTE!
+import Styles from "./HomeCalendar.module.css";
 
-// Tipos de TypeScript
 interface CalendarEvent extends Event {
-  id: number
-  title: string
-  start: Date
-  end: Date
+  id: number;
+  title: string;
+  start: Date;
+  end: Date;
 }
 
-const localizer = momentLocalizer(moment)
+const localizer = momentLocalizer(moment);
 
 const HomeCalendar: React.FC = () => {
-  // Array de eventos inicial
   const [events, setEvents] = useState<CalendarEvent[]>([
     {
       id: 1,
-      title: 'Reunión de equipo',
-      start: new Date(2024, 10, 15, 10, 0), // año, mes(0-11), día, hora, minuto
+      title: "Reunión de equipo",
+      start: new Date(2024, 10, 15, 10, 0),
       end: new Date(2024, 10, 15, 12, 0),
     },
     {
       id: 2,
-      title: 'Presentación cliente',
+      title: "Presentación cliente",
       start: new Date(2024, 10, 20, 14, 0),
       end: new Date(2024, 10, 20, 16, 0),
-    }
-  ])
+    },
+  ]);
 
-  // Función para crear nuevo evento
   const handleSelectSlot = (slotInfo: SlotInfo) => {
-    const title = window.prompt('Nombre del evento:')
+    const title = window.prompt("Nombre del evento:");
     if (title) {
       const newEvent: CalendarEvent = {
         id: events.length + 1,
         title,
         start: slotInfo.start,
         end: slotInfo.end,
-      }
-      setEvents([...events, newEvent])
+      };
+      setEvents([...events, newEvent]);
     }
-  }
+  };
 
-  // Función para editar evento existente
   const handleSelectEvent = (event: CalendarEvent) => {
-    const newTitle = window.prompt('Editar evento:', event.title)
+    const newTitle = window.prompt("Editar evento:", event.title);
     if (newTitle) {
-      setEvents(events.map(e => 
-        e.id === event.id ? { ...e, title: newTitle } : e
-      ))
+      setEvents(
+        events.map((e) => (e.id === event.id ? { ...e, title: newTitle } : e)),
+      );
     }
-  }
+  };
 
   return (
     <div className={Styles.container}>
@@ -63,16 +59,16 @@ const HomeCalendar: React.FC = () => {
         events={events}
         startAccessor="start"
         endAccessor="end"
-        style={{ height: '100%' }}
+        style={{ height: "100%" }}
         onSelectSlot={handleSelectSlot}
         onSelectEvent={handleSelectEvent}
         selectable
         popup
-        views={['month', 'week', 'day']}
+        views={["month", "week", "day"]}
         defaultView="month"
       />
     </div>
-  )
-}
+  );
+};
 
-export default HomeCalendar
+export default HomeCalendar;

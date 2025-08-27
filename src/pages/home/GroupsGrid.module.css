@@ -1,4 +1,3 @@
-/*---------------------------------------------------------------------------------- Header*/
 .header {
   display: flex;
   align-items: center;
@@ -11,31 +10,29 @@
 }
 
 .actions {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
-/*---------------------------------------------------------------------------------- CARDS*/
-.gridContainer{
-    height: 70vh;
-    overflow: auto;
-    border-radius: 16px;
-    margin-top: 20px;
 
-      /* Ocultar scrollbar en webkit browsers */
-    -webkit-scrollbar: none;
-    
-    /* Ocultar scrollbar en Firefox */
-    scrollbar-width: none;
-    
-    /* Ocultar scrollbar en IE/Edge legacy */
-    -ms-overflow-style: none;
+.gridContainer {
+  height: 70vh;
+  overflow: auto;
+  border-radius: 16px;
+  margin-top: 20px;
+
+  -webkit-scrollbar: none;
+
+  scrollbar-width: none;
+
+  -ms-overflow-style: none;
 }
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
-  padding:  0;
+  padding: 0;
 }
 
 .card {
@@ -72,22 +69,21 @@
   letter-spacing: -0.5px;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .container {
     padding: 15px;
   }
-  
+
   .grid {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 15px;
   }
-  
+
   .card {
     padding: 30px 15px;
     min-height: 100px;
   }
-  
+
   .groupName {
     font-size: 20px;
   }
@@ -98,12 +94,12 @@
     grid-template-columns: 1fr;
     gap: 12px;
   }
-  
+
   .card {
     padding: 25px 15px;
     min-height: 80px;
   }
-  
+
   .groupName {
     font-size: 18px;
   }

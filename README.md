@@ -1,69 +1,124 @@
-# React + TypeScript + Vite
+# 📋 PeopleHub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**PeopleHub** is a web application to **manage groups and track attendance** easily.  
+It allows administrators to create groups, manage members, and take digital attendance in a simple and modern interface.
 
-Currently, two official plugins are available:
+⚠️ The project is still under active development.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## ✨ Features (planned / in progress)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- 🔑 **Authentication** with [Supabase Auth](https://supabase.com/).
+- 👥 **Group management**: create, edit and remove groups.
+- ✅ **Attendance tracking**: mark presence/absence per member.
+- 📊 **Reports** (future): attendance history and statistics.
+- 🛠️ **Modern stack**: React + TypeScript + ESLint + Prettier.
+- 🧪 **Testing**: Jest (with possible migration to Vitest).
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 🛠️ Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **Frontend:** [React](https://reactjs.org/) + [TypeScript](https://www.typescriptlang.org/)
+- **Auth:** [Supabase](https://supabase.com/)
+- **Linting & Formatting:** ESLint + Prettier
+- **CI/CD:** GitHub Actions
+- **Testing:** Jest
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) >= 18
+- npm or yarn
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/your-org/peoplehub-web-frontend.git
+
+cd peoplehub-web-frontend
+
+# Install dependencies
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Running the App
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+# Start development server
+npm run dev
 ```
+
+Then open [http://localhost:5173](http://localhost:5173) in your browser.
+
+---
+
+## 🧪 Running Tests
+
+```bash
+# Run unit tests
+npm run test
+```
+
+---
+
+## 🔍 Linting & Formatting
+
+```bash
+# Check linting errors
+npm run lint
+
+# Check formatting
+npm run format:check
+
+# Apply Prettier formatting
+npm run format:write
+```
+
+_(Make sure your commits follow the formatting rules — GitHub Actions will enforce ESLint + Prettier checks)._
+
+---
+
+## 🤝 Contributing
+
+1. Fork the project.
+2. Create your feature branch:
+
+   ```bash
+   git checkout -b feat/my-feature
+   ```
+
+3. Commit your changes:
+
+   ```bash
+   git commit -m "feat: add my feature"
+   ```
+
+4. Push to the branch:
+
+   ```bash
+   git push origin feat/my-feature
+   ```
+
+5. Open a Pull Request.
+
+---
+
+## 📌 Roadmap
+
+- [ ] Basic authentication flow (login/register).
+- [ ] Group management UI.
+- [ ] Attendance feature.
+- [ ] Reports & dashboards.
+- [ ] Deployment to production.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.

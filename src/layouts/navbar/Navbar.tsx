@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { FaSearch, FaSun, FaMoon } from 'react-icons/fa';
-import styles from './Navbar.module.css';
+import { useState } from "react";
+import { FaSearch, FaSun, FaMoon } from "react-icons/fa";
+import styles from "./Navbar.module.css";
 
 const Navbar = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -13,7 +13,9 @@ const Navbar = () => {
     <div className={styles.navbar}>
       <div className={styles.navbar__greeting}>
         <h1 className={styles.navbar__title}>Hi, Amanda!</h1>
-        <p className={styles.navbar__subtitle}>Let's take a look at your activity today</p>
+        <p className={styles.navbar__subtitle}>
+          Let&lsquo;s take a look at your activity today
+        </p>
       </div>
 
       <div className={styles.navbar__actions}>
@@ -26,9 +28,8 @@ const Navbar = () => {
           />
         </div>
 
-        {/* Dark Mode Toggle */}
         <button
-          className={`${styles.navbar__themeToggle} ${isDarkMode ? styles['navbar__themeToggle--dark'] : ''}`}
+          className={`${styles.navbar__themeToggle} ${isDarkMode ? styles["navbar__themeToggle--dark"] : ""}`}
           onClick={toggleDarkMode}
         >
           {isDarkMode ? <FaSun /> : <FaMoon />}

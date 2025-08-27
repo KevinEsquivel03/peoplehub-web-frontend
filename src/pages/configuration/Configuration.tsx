@@ -1,10 +1,9 @@
-
 const Configuration = () => {
   return (
     <div>
-        <h1>Configuration</h1>
+      <h1>Configuration</h1>
     </div>
-  )
-}
+  );
+};
 
-export default Configuration
+export default Configuration;
