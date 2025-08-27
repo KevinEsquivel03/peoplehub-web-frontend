@@ -9,11 +9,16 @@
     "strict": true,
     "noEmit": true,
     "allowArbitraryExtensions": true,
-    "allowImportingTsExtensions": true,
-    "types": ["node", "jest", "@testing-library/jest-dom"]
+    "types": ["node", "jest", "@testing-library/jest-dom", "vite/client"]
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts"],
-  "exclude": ["src/**/*.test.ts", "src/**/*.test.tsx"],
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": [
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx",
+    "**/*.d.ts",
+    "node_modules",
+    "dist"
+  ],
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },

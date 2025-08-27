@@ -1,6 +1,6 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { Outlet } from "react-router-dom";
-import styles from "./MainLayuot.module.css";
+import styles from "./MainLayout.module.css";
 import { useAuth } from "../features/auth/hooks/useAuth";
 import Sidebar from "./sidebar/Sidebar";
 import Navbar from "./navbar/Navbar";

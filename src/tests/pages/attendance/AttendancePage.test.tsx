@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import AttendancePage from "../../../pages/attendance/AttendancePage.tsx";
+import AttendancePage from "../../../pages/attendance/AttendancePage";
 import { describe, it, expect } from "@jest/globals";
 
 describe("AttendancePage", () => {

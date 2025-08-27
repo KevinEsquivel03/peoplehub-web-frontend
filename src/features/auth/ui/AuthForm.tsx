@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./AuthFotm.module.css";
+import styles from "./AuthForm.module.css";
 
 interface AuthFormProps<T extends Record<string, string>> {
   onSubmit: (data: T) => void;

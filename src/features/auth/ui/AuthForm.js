@@ -1,6 +1,6 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import React, { useState } from "react";
-import styles from "./AuthFotm.module.css";
+import styles from "./AuthForm.module.css";
 export function AuthForm({
   onSubmit,
   isLoading,
