@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { FaSearch, FaSun, FaMoon } from "react-icons/fa";
 import styles from "./Navbar.module.css";
 import { useTheme } from "../../features/auth/hooks/useTheme";

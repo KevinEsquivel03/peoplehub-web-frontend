@@ -1,9 +1,9 @@
 import {
   FaUsers,
-  FaSearch,
-  FaBookmark,
+  //FaSearch,
+  //FaBookmark,
   FaFolder,
-  FaSync,
+  //FaSync,
   FaCog,
   FaUser,
 } from "react-icons/fa";
