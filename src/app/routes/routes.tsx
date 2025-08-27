@@ -8,6 +8,7 @@ import Configuration from "../../pages/configuration/Configuration";
 import Files from "../../pages/files/Files";
 import AttendancePage from "../../pages/attendance/AttendancePage";
 import RegisterPage from "../../pages/auth/RegisterPage";
+import NotFound from "../../pages/not-found/NotFound";
 
 export const router = createBrowserRouter([
   {
@@ -23,20 +24,28 @@ export const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: "config",
-        element: <Configuration />,
+        path: "search",
+        element: <Navigate to="/" replace />,
+      },
+      {
+        path: "saved",
+        element: <Navigate to="/" replace />,
       },
       {
         path: "files",
         element: <Files />,
       },
       {
-        path: "attendance",
-        element: <AttendancePage />,
+        path: "sync",
+        element: <Navigate to="/" replace />,
       },
       {
-        path: "*",
-        element: <Navigate to="/" replace />,
+        path: "config",
+        element: <Configuration />,
+      },
+      {
+        path: "attendance",
+        element: <AttendancePage />,
       },
     ],
   },
@@ -53,13 +62,13 @@ export const router = createBrowserRouter([
         element: <RegisterPage />,
       },
       {
-        index: true,
+        path: "forgot-password",
         element: <Navigate to="/auth/login" replace />,
       },
     ],
   },
   {
     path: "*",
-    element: <Navigate to="/auth/login" replace />,
+    element: <NotFound />,
   },
 ]);
