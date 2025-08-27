@@ -94,7 +94,7 @@ const LoginPage = () => {
             </Link>
           </p>
           <p>
-            <Link to="/forgot-password" className={styles.link}>
+            <Link to="/auth/forgot-password" className={styles.link}>
               ¿Olvidaste tu contraseña?
             </Link>
           </p>

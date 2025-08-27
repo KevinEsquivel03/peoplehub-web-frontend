@@ -1,12 +1,14 @@
-import Configuration from "../../pages/configuration/Configuration";
-import AttendancePage from "../../pages/attendance/AttendancePage";
 import { createBrowserRouter, Navigate } from "react-router-dom";
-import AuthLayout from "../../layouts/auth/AuthLayout";
-import LoginPage from "../../pages/auth/LoginPage";
 import MainLayout from "../../layouts/MainLayout";
+import AuthLayout from "../../layouts/auth/AuthLayout";
 import HomePage from "../../pages/home/HomePage";
 import ProtectedRoute from "./ProtectedRoute";
+import LoginPage from "../../pages/auth/LoginPage";
+import Configuration from "../../pages/configuration/Configuration";
 import Files from "../../pages/files/Files";
+import AttendancePage from "../../pages/attendance/AttendancePage";
+import NotFound from "../../pages/not-found/NotFound";
+import RegisterPage from "../../pages/auth/RegisterPage";
 
 export const router = createBrowserRouter([
   {
@@ -22,20 +24,28 @@ export const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: "config",
-        element: <Configuration />,
+        path: "search",
+        element: <Navigate to="/" replace />,
+      },
+      {
+        path: "saved",
+        element: <Navigate to="/" replace />,
       },
       {
         path: "files",
         element: <Files />,
       },
       {
-        path: "attendance",
-        element: <AttendancePage />,
+        path: "sync",
+        element: <Navigate to="/" replace />,
       },
       {
-        path: "",
-        element: <Navigate to="/auth/login" replace />,
+        path: "config",
+        element: <Configuration />,
+      },
+      {
+        path: "attendance",
+        element: <AttendancePage />,
       },
     ],
   },
@@ -48,13 +58,17 @@ export const router = createBrowserRouter([
         element: <LoginPage />,
       },
       {
-        index: true,
-        element: <Navigate to="/auth/login" replace />,
+        path: "register",
+        element: <RegisterPage />,
       },
       {
-        path: "*",
+        path: "forgot-password",
         element: <Navigate to="/auth/login" replace />,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <NotFound />,
   },
 ]);
