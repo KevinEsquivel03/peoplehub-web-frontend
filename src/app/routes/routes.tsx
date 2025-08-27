@@ -7,8 +7,8 @@ import LoginPage from "../../pages/auth/LoginPage";
 import Configuration from "../../pages/configuration/Configuration";
 import Files from "../../pages/files/Files";
 import AttendancePage from "../../pages/attendance/AttendancePage";
-import NotFound from "../../pages/not-found/NotFound";
 import RegisterPage from "../../pages/auth/RegisterPage";
+import NotFound from "../../pages/not-found/NotFound";
 
 export const router = createBrowserRouter([
   {
