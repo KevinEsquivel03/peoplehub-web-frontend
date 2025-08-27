@@ -3,5 +3,5 @@
   padding: 1rem;
   box-sizing: border-box;
   border-radius: 16px;
-  background: var(--color-white);
+  background: var(--bg-secondary);
 }

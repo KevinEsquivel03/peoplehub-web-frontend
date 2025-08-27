@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 20px 20px;
-  background-color: var(--color-white);
+  background-color: var(--bg-secondary);
   color: var(--color-black);
 
   border-radius: 16px;
@@ -36,7 +36,7 @@
 }
 
 .card {
-  background: var(--color-white);
+  background: var(--bg-secondary);
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   padding: 40px 20px;
@@ -47,6 +47,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   border: 1px solid rgba(0, 0, 0, 0.05);
+  color: var(--text-primary);
 }
 
 .card:hover {
@@ -63,7 +64,6 @@
 .groupName {
   font-size: 24px;
   font-weight: 600;
-  color: #1f2937;
   margin: 0;
   text-align: center;
   letter-spacing: -0.5px;
