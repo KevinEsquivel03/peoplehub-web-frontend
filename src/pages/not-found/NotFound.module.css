@@ -57,7 +57,9 @@ body {
   border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition:
+    background 0.3s ease,
+    transform 0.2s ease;
 }
 
 .homeLink:hover {
