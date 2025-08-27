@@ -119,7 +119,7 @@ const RegisterPage = () => {
         <div className={styles.linksContainer}>
           <p>
             ¿Ya tienes cuenta?{" "}
-            <Link to="/login" className={styles.link}>
+            <Link to="/auth/login" className={styles.link}>
               Inicia sesión
             </Link>
           </p>
