@@ -6,6 +6,7 @@ import ProtectedRoute from './ProtectedRoute';
 import LoginPage from '../../pages/auth/LoginPage';
 import Configuration from '../../pages/configuration/Configuration';
 import Files from '../../pages/files/Files';
+import AttendancePage from '../../pages/attendance/AttendancePage';
 
 export const router = createBrowserRouter([
     {
@@ -28,6 +29,14 @@ export const router = createBrowserRouter([
                 path: 'files',
                 element: <Files />,
             },
+            {
+                path: 'attendance',
+                element: <AttendancePage />,
+            },
+            {
+                path: '',
+                element: <Navigate to="/auth/login" replace />,
+            },
         ],
     },
     {
@@ -42,10 +51,10 @@ export const router = createBrowserRouter([
                 index: true,
                 element: <Navigate to="/auth/login" replace />,
             },
+            {
+                path: '*',
+                element: <Navigate to="/auth/login" replace />,
+            },
         ],
-    },
-    {
-        path: '*',
-        element: <Navigate to="/auth/login" replace />,
     },
 ]);

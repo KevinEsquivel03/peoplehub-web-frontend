@@ -1,6 +1,7 @@
 .container {
     padding: 2rem;
     max-width: 1200px;
+    height: 82vh;
     margin: 0 auto;
     overflow: auto;
 }
