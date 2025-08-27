@@ -1,27 +1,34 @@
 {
   "compilerOptions": {
     "jsx": "react-jsx",
-    "module": "commonjs",
-    "target": "esnext",
-    "moduleResolution": "node",
+    "module": "esnext",
+    "target": "es2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "moduleResolution": "bundler",
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
     "allowArbitraryExtensions": true,
-    "types": ["node", "jest", "@testing-library/jest-dom", "vite/client"]
+    "isolatedModules": true,
+    "allowImportingTsExtensions": true,
+    "declaration": false,
+    "emitDeclarationOnly": false,
+    "types": ["node", "jest", "@testing-library/jest-dom", "vite/client"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": [
     "src/**/*.test.ts",
     "src/**/*.test.tsx",
-    "**/*.d.ts",
+    "src/**/*.spec.ts",
+    "src/**/*.spec.tsx",
     "node_modules",
-    "dist"
-  ],
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
+    "dist",
+    "coverage"
   ]
 }
