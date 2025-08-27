@@ -21,6 +21,9 @@ export default [
       "vite.config.ts",
       "postcss.config.js",
       "**/*.d.ts",
+      "node_modules/**",
+      "**/*.test.{js,jsx,ts,tsx}",
+      "coverage/**",
     ],
   },
   {
@@ -52,7 +55,13 @@ export default [
       ...reactHooks.configs.recommended.rules,
       ...reactRefresh.configs.vite.rules,
       ...jsxA11y.configs.recommended.rules,
-      "prettier/prettier": ["warn", { singleQuote: false }],
+      "prettier/prettier": [
+        "warn",
+        {
+          singleQuote: false,
+          endOfLine: "lf",
+        },
+      ],
       quotes: ["error", "double"],
       "react/react-in-jsx-scope": "off",
       "no-unused-vars": "off",
