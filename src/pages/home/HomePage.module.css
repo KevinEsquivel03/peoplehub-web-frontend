@@ -1,30 +1,12 @@
 .container {
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+  display: flex;
+  gap: 1rem;
+  height: 100vh;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+.firstGrid {
+  flex: 1;
 }
-
-.card {
-  background: var(--color-white);
-  border-radius: 16px;
-  -webkit-scrollbar: none;
-
-  scrollbar-width: none;
-
-  -ms-overflow-style: none;
-}
-
-.groupName {
-  font-size: 24px;
-  font-weight: 600;
-  color: #1f2937;
-  margin: 0;
-  text-align: center;
-  box-sizing: border-box;
+.secondGrid {
+  flex: 1;
 }

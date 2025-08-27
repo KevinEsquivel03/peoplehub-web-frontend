@@ -7,24 +7,27 @@ import {
   FaCog,
   FaUser,
 } from "react-icons/fa";
+import { RiLogoutBoxFill } from "react-icons/ri";
 import styles from "./Sidebar.module.css";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useAuth } from "../../features/auth/hooks/useAuth";
 
 const Sidebar = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { logout } = useAuth();
 
   const handleNavigation = (path: string) => {
     navigate(path);
   };
 
   const menuItems = [
-    { icon: <FaUsers />, label: "Grupos", path: "/" },
-    { icon: <FaSearch />, label: "Buscar", path: "/search" },
-    { icon: <FaBookmark />, label: "Guardados", path: "/saved" },
-    { icon: <FaFolder />, label: "Archivos", path: "/files" },
-    { icon: <FaSync />, label: "Sincronizar", path: "/sync" },
-    { icon: <FaCog />, label: "Configuración", path: "/config" },
+    { icon: <FaUsers size={23} />, label: "Grupos", path: "/" },
+    //{ icon: <FaSearch />, label: "Buscar", path: "/search" },
+    //{ icon: <FaBookmark size={20}/>, label: "Guardados", path: "/saved" },
+    { icon: <FaFolder size={20} />, label: "Archivos", path: "/files" },
+    //{ icon: <FaSync />, label: "Sincronizar", path: "/sync" },
+    { icon: <FaCog size={20} />, label: "Configuración", path: "/config" },
   ];
 
   return (
@@ -55,9 +58,13 @@ const Sidebar = () => {
       </nav>
 
       <div className={styles.sidebar__user}>
-        <div className={styles.sidebar__userAvatar}>
-          <FaUser />
-        </div>
+        <button className={styles.sidebar__item}>
+          <FaUser size={20} />
+        </button>
+        <br />
+        <button className={styles.sidebar__item} onClick={logout}>
+          <RiLogoutBoxFill size={20} />
+        </button>
       </div>
     </div>
   );
