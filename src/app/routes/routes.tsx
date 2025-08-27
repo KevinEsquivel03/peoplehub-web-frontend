@@ -7,6 +7,7 @@ import LoginPage from "../../pages/auth/LoginPage";
 import Configuration from "../../pages/configuration/Configuration";
 import Files from "../../pages/files/Files";
 import AttendancePage from "../../pages/attendance/AttendancePage";
+import NotFound from "../../pages/NotFound/NotFound";
 
 export const router = createBrowserRouter([
   {
@@ -34,8 +35,8 @@ export const router = createBrowserRouter([
         element: <AttendancePage />,
       },
       {
-        path: "",
-        element: <Navigate to="/" replace />,
+        path: "*",
+        element: <NotFound />,
       },
     ],
   },
