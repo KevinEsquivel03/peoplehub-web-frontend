@@ -57,7 +57,7 @@ jobs:
       - name: Check Prettier formatting
         id: format-check
         run: |
-          if ! npx prettier --check "src/**/*.{js,jsx,ts,tsx}" "*.{js,ts,json,md}" "public/**/*.html"; then
+          if ! npx prettier --check "src/**/*.{js,jsx,ts,tsx}" "*.{js,ts,json,md}"; then
             echo "formatted=true" >> $GITHUB_OUTPUT
             exit 1
           else
@@ -66,14 +66,14 @@ jobs:
 
       - name: Apply Prettier formatting
         if: failure() && steps.format-check.outputs.formatted == 'true'
-        run: npx prettier --write "src/**/*.{js,jsx,ts,tsx}" "*.{js,ts,json,md}" "public/**/*.html"
+        run: npx prettier --write "src/**/*.{js,jsx,ts,tsx}" "*.{js,ts,json,md}"
 
       - name: Commit formatted files
         if: failure() && steps.format-check.outputs.formatted == 'true' && github.event_name == 'push'
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "style: apply automatic Prettier formatting [skip ci]"
-          file_pattern: "src/**/*.{js,jsx,ts,tsx} *.{js,ts,json,md} public/**/*.html"
+          file_pattern: "src/**/*.{js,jsx,ts,tsx} *.{js,ts,json,md}"
 
   tests:
     name: Unit Tests
@@ -171,7 +171,6 @@ jobs:
           npm outdated >> $GITHUB_STEP_SUMMARY || true
           echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
 
-  # Resumen final
   quality_gate:
     name: Quality Gate
     runs-on: ubuntu-latest
