@@ -23,7 +23,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgb(3, 3, 3);
+  color: var(--text-primary);
   font-size: 30px;
   margin-bottom: 8px;
 }
@@ -31,7 +31,7 @@
 .sidebar__brandText {
   font-size: 12px;
   font-weight: 600;
-  color: #6b7280;
+  color: var(--text-secondary);
   text-align: center;
 }
 
@@ -48,16 +48,19 @@
   width: 48px;
   height: 48px;
   border-radius: 12px;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s ease;
   position: relative;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 .sidebar__item:hover {
-  background: #f3f4f6;
+  background: var(--bg-secondary);
 }
 
 .sidebar__item--active {
@@ -70,63 +73,9 @@
 
 .sidebar__icon {
   font-size: 18px;
-  color: var(--color-black);
   transition: color 0.2s ease;
 }
 
 .sidebar__item:hover .sidebar__icon {
-  color: #374151;
-}
-
-.sidebar__user {
-  margin-top: auto;
-  padding-top: 20px;
-}
-
-.sidebar__userAvatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #f3f4f6;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  border: 2px solid transparent;
-}
-
-.sidebar__userAvatar:hover {
-  background: #e5e7eb;
-  border-color: #3b82f6;
-}
-
-.sidebar__userAvatar .fa-user {
-  font-size: 16px;
-  color: #6b7280;
-}
-
-@media (max-width: 768px) {
-  .sidebar {
-    width: 60px;
-    padding: 15px 0;
-  }
-
-  .sidebar__logo,
-  .sidebar__item {
-    width: 40px;
-    height: 40px;
-  }
-
-  .sidebar__logo {
-    font-size: 16px;
-  }
-
-  .sidebar__icon {
-    font-size: 16px;
-  }
-
-  .sidebar__brandText {
-    display: none;
-  }
+  color: var(--text-secondary);
 }
