@@ -1,14 +1,18 @@
 import { FaSearch, FaSun, FaMoon } from "react-icons/fa";
 import styles from "./Navbar.module.css";
 import { useTheme } from "../../features/auth/hooks/useTheme";
+import { useAuth } from "../../features/auth/hooks/useAuth";
 
 const Navbar = () => {
   const { isDark, toggleTheme } = useTheme();
+  const { user } = useAuth();
 
   return (
     <div className={styles.navbar}>
       <div className={styles.navbar__greeting}>
-        <h1 className={styles.navbar__title}>Hi, Amanda!</h1>
+        <h1 className={styles.navbar__title}>
+          Hi, {user?.displayName || "there!"}
+        </h1>
         <p className={styles.navbar__subtitle}>
           Let&lsquo;s take a look at your activity today
         </p>

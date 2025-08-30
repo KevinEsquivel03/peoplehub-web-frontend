@@ -11,7 +11,7 @@ export interface AppUser {
 export interface AuthContextType {
   isAuthenticated: boolean;
   user: AppUser | null;
-  login: (user?: User | null) => void;
+  login: (user: User | null) => void;
   logout: () => void;
   loading: boolean;
 }
@@ -20,33 +20,23 @@ const AuthContext = createContext<AuthContextType | null>(null);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<AppUser | null>(null);
-  const [loading, setLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const getInitialSession = async () => {
+    const initialize = async () => {
       try {
-        const {
-          data: { session },
-          error,
-        } = await supabase.auth.getSession();
-
-        if (error) {
-          console.error("Error getting session:", error);
+        const session = await supabase.auth.getSession();
+        if (session.error || !session.data?.session?.user) {
           return;
         }
 
-        if (session?.user) {
-          const appUser: AppUser = {
-            id: session.user.id,
-            email: session.user.email!,
-            displayName: session.user.user_metadata?.displayName,
-          };
-          setUser(appUser);
-          setIsAuthenticated(true);
-
-          console.log("Session loaded:", session);
-        }
+        setUser({
+          id: session.data.session.user.id,
+          email: session.data.session.user.email!,
+          displayName: session.data.session.user.user_metadata?.displayName,
+        });
+        setIsAuthenticated(true);
       } catch (error) {
         console.error("Failed to get initial session:", error);
       } finally {
@@ -54,48 +44,48 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       }
     };
 
-    getInitialSession();
+    initialize();
 
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange(async (event, session) => {
       console.log("Auth event:", event);
 
+      setLoading(true);
+
       if (event === "SIGNED_IN" && session?.user) {
-        const appUser: AppUser = {
+        setUser({
           id: session.user.id,
           email: session.user.email!,
           displayName: session.user.user_metadata?.displayName,
-        };
-        setUser(appUser);
+        });
         setIsAuthenticated(true);
-
-        console.log("Signed in user:", session.user);
       } else if (event === "SIGNED_OUT") {
         setUser(null);
         setIsAuthenticated(false);
       }
+
       setLoading(false);
     });
 
     return () => subscription.unsubscribe();
   }, []);
 
-  const login = (user?: User | null): void => {
-    if (user) {
-      const appUser: AppUser = {
-        id: user.id,
-        email: user.email!,
-        displayName: user.user_metadata?.displayName,
-      };
-      setUser(appUser);
-      setIsAuthenticated(true);
-    } else {
+  const login = (user: User | null) => {
+    if (!user) {
       console.error("No user provided");
+      return;
     }
+
+    setUser({
+      id: user.id,
+      email: user.email!,
+      displayName: user.user_metadata?.displayName,
+    });
+    setIsAuthenticated(true);
   };
 
-  const logout = async (): Promise<void> => {
+  const logout = async () => {
     try {
       await supabase.auth.signOut();
       setUser(null);
